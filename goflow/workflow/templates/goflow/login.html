@@ -5,7 +5,7 @@
 <h1 id="site-name">{% trans 'GoFlow' %}</h1>
 {% endblock %}
 
-{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/login.css{% endblock %}
+{% block stylesheet %}{{STATIC_URL}}admin/css/login.css{% endblock %}
 {% block bodyclass %}login{% endblock %}
 {% block content_title %}{% endblock %}
 {% block breadcrumbs %}{% endblock %}

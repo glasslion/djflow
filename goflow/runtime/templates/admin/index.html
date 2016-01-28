@@ -1,7 +1,7 @@
 {% extends "admin/base_site.html" %}
 {% load i18n %}
 
-{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/dashboard.css{% endblock %}
+{% block stylesheet %}{{STATIC_URL}}admin/css/dashboard.css{% endblock %}
 
 {% block coltype %}colMS{% endblock %}
 
@@ -56,17 +56,17 @@
     <div class="module">
         <h2>{% trans 'Workflows' %}</h2>
         <p><a href="runtime/workitem/?status__exact=fallout">
-        <img src="{% admin_media_prefix %}img/admin/icon_alert.gif">
+        <img src="{{STATIC_URL}}admin/img/admin/icon_alert.gif">
         Errors</a>
         <br><span class="mini quiet">(fall out workitems)</span>
         
         <br><a href="runtime/processinstance/?ot=desc&status__exact=running&o=3">
-        <img src="{% admin_media_prefix %}img/admin/icon_clock.gif">
+        <img src="{{STATIC_URL}}admin/img/admin/icon_clock.gif">
         Running workflow instances</a>
         <br><span class="mini quiet">last instances first</span>
         
         <br><a href="workflow/process/">
-        <img src="{% admin_media_prefix %}img/admin/icon_changelink.gif">
+        <img src="{{STATIC_URL}}admin/img/admin/icon_changelink.gif">
         Processes definitions</a>
 
         </ul>
