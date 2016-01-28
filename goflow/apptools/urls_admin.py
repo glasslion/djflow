@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('goflow.apptools.views',
     (r'^icon/image_update/$', 'image_update'),
