@@ -6,8 +6,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # django-flags for internationalization
-    (r'^lang/', include('sampleproject.flags.urls')),
     # FOR DEBUG AND TEST ONLY
     (r'^.*switch/(?P<username>.*)/(?P<password>.*)/$', 'goflow.workflow.views.debug_switch_user'),
     # home page
@@ -22,14 +20,14 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    
+
     # FOR TEST - insert before admin/(.*)
     (r'^admin/workflow/', include('goflow.apptools.urls_admin')),
     # special
     (r'^admin/apptools/', include('goflow.apptools.urls_admin')),
-    
+
     # Uncomment the next line for to enable the admin:
-    (r'^admin/(.*)', admin.site.root),
+    (r'^admin/', include(admin.site.urls)),
     # workflow pages
     (r'^workflow/', include('goflow.urls')),
     # static files
