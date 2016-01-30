@@ -66,3 +66,6 @@ mailhog
 
 # Database
 *.sqlite
+
+# Sample Site
+staticfiles
