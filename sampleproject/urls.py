@@ -1,5 +1,7 @@
 from django.conf.urls import *
 from django.conf import settings
+from django.views.generic import RedirectView
+
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -11,7 +13,7 @@ urlpatterns = patterns('',
     # home page
     (r'^$', 'sampleproject.sampleapp.views.home'),
     # home redirection
-    (r'^.*home/$', 'django.views.generic.simple.redirect_to', {'url':'/'}),
+    (r'^.*home/$', RedirectView.as_view(url='/')),
     # login/logout
     (r'^logout/$', 'django.contrib.auth.views.logout'),
     (r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name':'goflow/login.html'}),
