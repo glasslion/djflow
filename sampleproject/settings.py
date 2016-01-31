@@ -99,6 +99,7 @@ INSTALLED_APPS = (
 )
 
 LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/'
 
 # user profile model
 AUTH_PROFILE_MODULE = 'workflow.userprofile'
