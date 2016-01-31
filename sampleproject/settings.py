@@ -101,6 +101,10 @@ INSTALLED_APPS = (
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
 
+STATICFILES_DIRS = (
+    join(_dir, 'static'),
+)
+
 # user profile model
 AUTH_PROFILE_MODULE = 'workflow.userprofile'
 
