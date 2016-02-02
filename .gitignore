@@ -23,6 +23,25 @@ sftp-config.json
 *.py[cod]
 __pycache__
 
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+
 # Logs
 *.log
 pip-log.txt
@@ -55,14 +74,8 @@ node_modules/
 # virtual environments
 .env
 
-# User-uploaded media
-{{ cookiecutter.repo_name }}/media/
-
-# Hitch directory
-tests/.hitch
-
-# MailHog binary
-mailhog
+# Sphinx
+docs/_build
 
 # Database
 *.sqlite
