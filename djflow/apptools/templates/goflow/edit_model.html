@@ -1,4 +1,4 @@
-{% extends "goflow/base_site.html" %}
+{% extends "djflow/base_site.html" %}
 {% load i18n admin_modify %}
 
 {% block extrahead %}{{ block.super }}
@@ -21,10 +21,10 @@
 	You may use a suitable form by setting the <i>form_class</i> parameter
 	in the urls.py file as follows:
 	<pre>
-	    (r'^myedit/(?P<id>.*)/$', 'goflow.workflow.applications.edit_model', {'form_class':MyModelForm, template='my_template.html'}),
+	    (r'^myedit/(?P<id>.*)/$', 'djflow.workflow.applications.edit_model', {'form_class':MyModelForm, template='my_template.html'}),
 	</pre>
 	You should provide a form as <a href=http://www.djangoproject.com/documentation/modelforms/ target=doc>documented here</a>,
-	and inheriting of </i>goflow.runtime.forms.BaseForm</i>.
+	and inheriting of </i>djflow.runtime.forms.BaseForm</i>.
 	<p>You may also define a suitable template (the default is <i>edit_model.html</i>) with the <i>template</i> parameter.
 	This template can access the following variables:
 	<ul>

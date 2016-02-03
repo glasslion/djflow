@@ -9,35 +9,35 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def mywork(request, template='goflow/mywork.html'):
+def mywork(request, template='djflow/mywork.html'):
     '''
     displays the worklist of the current user.
     
     parameters:
     
     template
-        default:'goflow/mywork.html'
+        default:'djflow/mywork.html'
     '''
     workitems = WorkItem.objects.list_safe(user=request.user, noauto=True)
     return render_to_response(template, {'workitems':workitems},
                               context_instance=RequestContext(request))
 
 @login_required
-def otherswork(request, template='goflow/otherswork.html'):
+def otherswork(request, template='djflow/otherswork.html'):
     worker = request.GET['worker']
     workitems = WorkItem.objects.list_safe(username=worker, noauto=False)
     return render_to_response(template, {'worker':worker, 'workitems':workitems},
                               context_instance=RequestContext(request))
 
 @login_required
-def instancehistory(request, template='goflow/instancehistory.html'):
+def instancehistory(request, template='djflow/instancehistory.html'):
     id = int(request.GET['id'])
     inst = ProcessInstance.objects.get(pk=id)
     return render_to_response(template, {'instance':inst},
                               context_instance=RequestContext(request))
 
 @login_required
-def myrequests(request, template='goflow/myrequests.html'):
+def myrequests(request, template='djflow/myrequests.html'):
     inst_list = ProcessInstance.objects.filter(user=request.user)
     return render_to_response(template, {'instances':inst_list},
                               context_instance=RequestContext(request))

@@ -1,4 +1,4 @@
-{% extends "goflow/base.html" %}
+{% extends "djflow/base.html" %}
 {% load i18n %}
 
 {% block title %}{{ title|escape }} | {% trans 'GoFlow' %}{% endblock %}
@@ -7,7 +7,7 @@
 <a href="http://code.djangoproject.com/wiki/GoFlow">
 <h1 id="site-name">{% trans 'GoFlow' %}</h1>
 </a>
-{% load debug_goflow %}{% switch_users %}
+{% load debug_djflow %}{% switch_users %}
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

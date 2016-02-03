@@ -7,8 +7,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.contenttypes.models import ContentType
 from forms import ContentTypeForm
 
-from goflow.workflow.models import Process, Application, Transition
-from goflow.runtime.models import ProcessInstance, WorkItem
+from djflow.workflow.models import Process, Application, Transition
+from djflow.runtime.models import ProcessInstance, WorkItem
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -22,13 +22,13 @@ from forms import DefaultAppForm
 
 from django.conf import settings
 
-from goflow.workflow.logger import Log; log = Log('goflow.apptools.views')
+from djflow.workflow.logger import Log; log = Log('djflow.apptools.views')
 
-from goflow.workflow.notification import send_mail
+from djflow.workflow.notification import send_mail
 
 @login_required
 def start_application(request, app_label=None, model_name=None, process_name=None, instance_label=None,
-                       template=None, template_def='goflow/start_application.html',
+                       template=None, template_def='djflow/start_application.html',
                        form_class=None, redirect='home', submit_name='action',
                        ok_value='OK', cancel_value='Cancel', extra_context={}):
     '''
@@ -45,7 +45,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
     template 
         default: 'start_%s.html' % app_label
     template_def
-        used if template not found - default: 'goflow/start_application.html'
+        used if template not found - default: 'djflow/start_application.html'
     form_class
         default: django.forms.models.modelform_factory(model)
     '''
@@ -101,7 +101,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
 
 
 @login_required
-def default_app(request, id, template='goflow/default_app.html', redirect='../../', submit_name='action'):
+def default_app(request, id, template='djflow/default_app.html', redirect='../../', submit_name='action'):
     '''
     default application, used for prototyping workflows.
     '''
@@ -165,7 +165,7 @@ def _cond_to_button_value(cond):
 
 
 @login_required
-def edit_model(request, id, form_class, cmp_attr=None,template=None, template_def='goflow/edit_model.html', title="",
+def edit_model(request, id, form_class, cmp_attr=None,template=None, template_def='djflow/edit_model.html', title="",
                redirect='home', submit_name='action', ok_values=('OK',), save_value=None, cancel_value='Cancel',
                extra_context={}):
     '''
@@ -176,13 +176,13 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None, template_de
     id
         workitem id (required)
     form_class
-        model form based on goflow.apptools.forms.BaseForm (required)
+        model form based on djflow.apptools.forms.BaseForm (required)
     cmp_attr
         edit obj.cmp_attr attribute instead of obj - default=None
     template 
-        default: 'goflow/edit_%s.html' % model_lowercase
+        default: 'djflow/edit_%s.html' % model_lowercase
     template_def
-        used if template not found - default: 'goflow/edit_model.html'
+        used if template not found - default: 'djflow/edit_model.html'
     title
         default=""
     redirect
@@ -198,7 +198,7 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None, template_de
     extra_context
         default={}
     '''
-    if not template: template = 'goflow/edit_%s.html' % form_class._meta.model._meta.object_name.lower()
+    if not template: template = 'djflow/edit_%s.html' % form_class._meta.model._meta.object_name.lower()
     model_class = form_class._meta.model
     workitem = WorkItem.objects.get_safe(int(id), user=request.user)
     instance = workitem.instance
@@ -259,7 +259,7 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None, template_de
 
 
 @login_required
-def view_application(request, id, template='goflow/view_application.html', redirect='home', title="",
+def view_application(request, id, template='djflow/view_application.html', redirect='home', title="",
                submit_name='action', ok_values=('OK',), cancel_value='Cancel',
                extra_context={}):
     '''
@@ -272,7 +272,7 @@ def view_application(request, id, template='goflow/view_application.html', redir
     id
         workitem id (required)
     template 
-        default: 'goflow/view_application.html'
+        default: 'djflow/view_application.html'
     redirect
         default='home'
     title
@@ -319,7 +319,7 @@ def view_application(request, id, template='goflow/view_application.html', redir
 
 
 @login_required
-def choice_application(request, id, template='goflow/view_application_image.html', redirect='home', title="Choice",
+def choice_application(request, id, template='djflow/view_application_image.html', redirect='home', title="Choice",
                submit_name='image', cancel_action='cancel', extra_context={}):
     '''
     a view to make a choice within image buttons.
@@ -334,7 +334,7 @@ def choice_application(request, id, template='goflow/view_application_image.html
     id
         workitem id (required)
     template 
-        default: 'goflow/view_application_image.html'
+        default: 'djflow/view_application_image.html'
     redirect
         default='home'
     title
@@ -360,15 +360,15 @@ def choice_application(request, id, template='goflow/view_application_image.html
     return view_application(request, id, template, redirect, title,
                submit_name, ok_values, cancel_action, extra_context)
 
-def sendmail(workitem, subject='goflow.apptools sendmail message', template='goflow/app_sendmail.txt'):
+def sendmail(workitem, subject='djflow.apptools sendmail message', template='djflow/app_sendmail.txt'):
     '''send a mail notification to the workitem user.
     
     parameters:
     
     subject
-        default='goflow.apptools sendmail message'
+        default='djflow.apptools sendmail message'
     template
-        default='goflow/app_sendmail.txt'
+        default='djflow/app_sendmail.txt'
     '''
     send_mail(workitems=(workitem,), user=workitem.user, subject=subject, template=template)
 
@@ -408,7 +408,7 @@ def app_env(request, action, id, template=None):
     return HttpResponse(rep)
 
 @login_required
-def test_start(request, id, template='goflow/test_start.html'):
+def test_start(request, id, template='djflow/test_start.html'):
     """
     starts test instances.
     

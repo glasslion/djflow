@@ -1,8 +1,8 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 from django.db import models
-from goflow.workflow.models import Transition
-from goflow.workflow.decorators import allow_tags
+from djflow.workflow.models import Transition
+from djflow.workflow.decorators import allow_tags
 from django.conf import settings
 
 

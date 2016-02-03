@@ -1,4 +1,4 @@
-{% extends "goflow/base_site.html" %}
+{% extends "djflow/base_site.html" %}
 {% load i18n admin_modify %}
 
 {% block extrahead %}{{ block.super }}
@@ -25,7 +25,7 @@
 	      'template':'mytemplate.html'})
 	</pre>
 	<p>The form must be a <a href=http://www.djangoproject.com/documentation/modelforms/>ModelForm</a> that
-	inherits from <i>goflow.runtime.forms.StartForm</i>.
+	inherits from <i>djflow.runtime.forms.StartForm</i>.
 	<p>You may also define a suitable template (the default is <i>start_application.html</i>) with the <i>template</i> parameter.
 	
 	

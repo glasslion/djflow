@@ -1,4 +1,4 @@
-{% extends "goflow/base_site.html" %}
+{% extends "djflow/base_site.html" %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@ You may define a suitable template (the default is <i>view_application.html</i>)
 in the urls.py file as follows:
 <pre>
     (r'^my/appli/view_appli/$',
-      'goflow.workflow.applications.view_application',
+      'djflow.workflow.applications.view_application',
       {'template':'mytemplate.html'}),
 </pre>
 

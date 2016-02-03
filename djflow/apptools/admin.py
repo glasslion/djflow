@@ -1,7 +1,7 @@
 from django.contrib import admin
 from models import *
-from goflow.workflow.models import Transition
-from goflow.workflow.admin import TransitionAdmin as TransitionAdminOld
+from djflow.workflow.models import Transition
+from djflow.workflow.admin import TransitionAdmin as TransitionAdminOld
 
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('category', 'graphic', 'file', 'url')

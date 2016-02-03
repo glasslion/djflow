@@ -3,8 +3,8 @@
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from goflow.workflow.decorators import allow_tags
-from goflow.workflow.models import Process, Activity
+from djflow.workflow.decorators import allow_tags
+from djflow.workflow.models import Process, Activity
 
 
 class Image(models.Model):

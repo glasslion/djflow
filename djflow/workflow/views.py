@@ -26,7 +26,7 @@ def index(request, template='workflow/index.html', extra_context={}):
     processes = Process.objects.all()
     # optional package (ugly design)
     try:
-        from goflow.apptools.models import DefaultAppModel
+        from djflow.apptools.models import DefaultAppModel
         obinstances = DefaultAppModel.objects.all()
     except Exception:
         obinstances = None
@@ -74,7 +74,7 @@ def userlist(request, template):
     return HttpResponse('user page.')
 
 
-def process_dot(request, id, template='goflow/process.dot'):
+def process_dot(request, id, template='djflow/process.dot'):
     """graphviz generator (**Work In Progress**).
     (**Work In Progress**)
     

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from goflow.graphics2.models import ProcessImage, ActivityPosition
-from goflow.workflow.models import Activity
+from djflow.graphics2.models import ProcessImage, ActivityPosition
+from djflow.workflow.models import Activity
 
 def pos_activity(request, process_id):
     process = ProcessImage.objects.get(id=int(process_id))

@@ -1,4 +1,4 @@
-mail sent by goflow.
+mail sent by djflow.
 
 This mail template (mail.txt) is a default template
 You should define one template for each notification message.

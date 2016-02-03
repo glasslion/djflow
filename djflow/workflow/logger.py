@@ -27,7 +27,7 @@ logging.basicConfig(
     format=log_format,
     datefmt="%Y-%m-%d %H:%M:%S"
 )
-log = logging.getLogger('goflow.common')
+log = logging.getLogger('djflow.common')
 if _LOG_FILE_NOTSET:
      log.warning('settings.LOGGING_FILE not set; default is workflow.log')
 

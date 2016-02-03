@@ -5,27 +5,27 @@ from apptools.views import DefaultAppModel
 
 urlpatterns = patterns('django.contrib.auth.views',
     (r'^.*/logout/$', 'logout'),
-    (r'^.*/accounts/login/$', 'login', {'template_name':'goflow/login.html'}),
-    (r'^apptools/', include('goflow.apptools.urls')),
-    (r'^graph/', include('goflow.graphics.urls')),
+    (r'^.*/accounts/login/$', 'login', {'template_name':'djflow/login.html'}),
+    (r'^apptools/', include('djflow.apptools.urls')),
+    (r'^graph/', include('djflow.graphics.urls')),
 )
 
-urlpatterns += patterns('goflow.workflow.views',
+urlpatterns += patterns('djflow.workflow.views',
     (r'^$', 'index'),
     (r'^process/dot/(?P<id>.*)$','process_dot'),
     (r'^cron/$','cron'),
 )
 
-urlpatterns += patterns('goflow.apptools.views',
+urlpatterns += patterns('djflow.apptools.views',
     (r'^default_app/(?P<id>.*)/$', 'default_app'),
     (r'^start/(?P<app_label>.*)/(?P<model_name>.*)/$', 'start_application'),
     (r'^start_proto/(?P<process_name>.*)/$', 'start_application',
         {'form_class':DefaultAppStartForm,
          'redirect':'../../',
-         'template':'goflow/start_proto.html'}),
+         'template':'djflow/start_proto.html'}),
 )
 
-urlpatterns += patterns('goflow.runtime.views',
+urlpatterns += patterns('djflow.runtime.views',
     (r'^otherswork/$',                 'otherswork'),
     (r'^otherswork/instancehistory/$', 'instancehistory'),
     (r'^myrequests/$',                 'myrequests'),

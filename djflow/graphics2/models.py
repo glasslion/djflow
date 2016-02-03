@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
-from goflow.workflow.models import Process, Activity
-from goflow.workflow.decorators import allow_tags
+from djflow.workflow.models import Process, Activity
+from djflow.workflow.decorators import allow_tags
 
 class ProcessImage(models.Model):
     process = models.ForeignKey(Process)

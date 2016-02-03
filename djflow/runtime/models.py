@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import Group, User
-from goflow.workflow.models import Process, Activity, Transition, UserProfile
-from goflow.workflow.notification import send_mail
+from djflow.workflow.models import Process, Activity, Transition, UserProfile
+from djflow.workflow.notification import send_mail
 from datetime import timedelta, datetime
 from django.core.urlresolvers import resolve
 from django.core.mail import mail_admins
@@ -11,10 +11,10 @@ from django.core.mail import mail_admins
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
-from goflow.workflow.logger import Log; log = Log('goflow.runtime.managers')
+from djflow.workflow.logger import Log; log = Log('djflow.runtime.managers')
 from django.conf import settings
 
-from goflow.workflow.decorators import allow_tags
+from djflow.workflow.decorators import allow_tags
 
 class ProcessInstanceManager(models.Manager):
     '''Custom model manager for ProcessInstance
@@ -232,7 +232,7 @@ class WorkItemManager(models.Manager):
         :type queryset: QuerySet
         :param queryset: pre-filtering (default=WorkItem.objects)
         :type activity: Activity
-        :param activity: filter on instance of goflow.workflow.models.Activity (default=all) 
+        :param activity: filter on instance of djflow.workflow.models.Activity (default=all) 
         :type status: string
         :param status: filter on status (default=all) 
         :type notstatus: string or tuple

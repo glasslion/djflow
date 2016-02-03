@@ -1,6 +1,6 @@
 from django.template import Library
 #from django.conf import settings
-from goflow.apptools.models import ImageButton
+from djflow.apptools.models import ImageButton
 
 register = Library()
 
@@ -9,7 +9,7 @@ def form_ext(form):
     This will insert a form, in a bit more sophisticated way than {{ form }}.
 
     Required and optional fields are displayed differently. For details,
-    see template file *goflow/apptools/edit_form.html*.
+    see template file *djflow/apptools/edit_form.html*.
 
     parameter:
 
@@ -22,10 +22,10 @@ def form_ext(form):
     
     the current implementation is equivalent to::
 
-        {% include "goflow/apptools/edit_form.html" %}
+        {% include "djflow/apptools/edit_form.html" %}
     '''
     return {'form':form}
-form_ext = register.inclusion_tag("goflow/apptools/edit_form.html")(form_ext)
+form_ext = register.inclusion_tag("djflow/apptools/edit_form.html")(form_ext)
 
 def _get_transitions_out_images(activity):
     if activity.split_mode == 'and':
@@ -40,7 +40,7 @@ def input_buttons(context):
     '''
     This will insert submit buttons in application templates.
 
-    The template *goflow/apptools/input_buttons.html* is used for rendering.
+    The template *djflow/apptools/input_buttons.html* is used for rendering.
 
     Usage::
 
@@ -66,7 +66,7 @@ def input_buttons(context):
     if context.has_key('save_value'): sub_context['save_value'] = context['save_value']
     if context.has_key('cancel_value'): sub_context['cancel_value'] = context['cancel_value']
     return sub_context
-input_buttons = register.inclusion_tag("goflow/apptools/input_buttons.html", takes_context=True)(input_buttons)
+input_buttons = register.inclusion_tag("djflow/apptools/input_buttons.html", takes_context=True)(input_buttons)
 
 @register.simple_tag
 def image_button(action):

@@ -1,12 +1,12 @@
 from django.template import Library
-from goflow.runtime.models import WorkItem
+from djflow.runtime.models import WorkItem
 register = Library()
 
 def mywork(user):
     '''
     Display the worklist of a user as a table.
 
-    The template *goflow/workitems.html* is used for rendering.
+    The template *djflow/workitems.html* is used for rendering.
 
     Usage::
 
@@ -24,7 +24,7 @@ def mywork(user):
     this can be used instead, if *workitems* variable is available
     in the context::
 
-        {% include "goflow/workitems.html" %}
+        {% include "djflow/workitems.html" %}
     
     when using *render_to_response* shortcut, don't forget
     to add a *RequestContext* as following::
@@ -37,5 +37,5 @@ def mywork(user):
     '''
     workitems = WorkItem.objects.list_safe(user=user, noauto=True)
     return {'workitems':workitems}
-mywork = register.inclusion_tag("goflow/workitems.html")(mywork)
+mywork = register.inclusion_tag("djflow/workitems.html")(mywork)
 
