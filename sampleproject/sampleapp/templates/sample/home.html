@@ -38,13 +38,13 @@ Un partie du tutoriel est d'ailleurs consacré à celà.
 Il est tout à fait classique; nous relèverons simplement quelques éléments caractéristiques
 <h5>DEBUG</h5>
 Positionné sur <i>True</i> il donne accès à la fonction <i>fast switch</i>
-fournie par le templatetag <i>switch_users</i> de la librairie <i>debug_goflow</i>.
+fournie par le templatetag <i>switch_users</i> de la librairie <i>debug_djflow</i>.
 <h5>INSTALLED_APPS</h5>
 Il contient entre autre les applications suivantes:
 <table border=1>
-    <tr><th>'goflow.workflow'</th><td>définition workflow</td></tr>
-    <tr><th>'goflow.runtime'</th><td>runtime workflow</td></tr>
-    <tr><th>'goflow.apptools'</th><td>utilitaires applications</td></tr>
+    <tr><th>'djflow.workflow'</th><td>définition workflow</td></tr>
+    <tr><th>'djflow.runtime'</th><td>runtime workflow</td></tr>
+    <tr><th>'djflow.apptools'</th><td>utilitaires applications</td></tr>
     <tr><th>'sampleproject.sampleapp'</th><td>application de workflow</td></tr>
 </table>
 
@@ -69,7 +69,7 @@ TODO
 
 <a name=test></a><h3>test</h3>
 Le process workflow fourni avec ce projet met en oeuvre toutes les applications
-prédéfinies disponible dans le module goflow.apptools. Ce projet peut donc servir de base
+prédéfinies disponible dans le module djflow.apptools. Ce projet peut donc servir de base
 pour construire des tests permettant d'améliorer la robustesse de GoFlow.
 
 {% endblock %}
@@ -81,7 +81,7 @@ pour construire des tests permettant d'améliorer la robustesse de GoFlow.
 I am <b>{{ user }}</b>
 <br><a href=/logout/>disconnect</a>
 <h3>fast switch</h3>
-{% load debug_goflow %}{% switch_users %}
+{% load debug_djflow %}{% switch_users %}
 </div>
 
 

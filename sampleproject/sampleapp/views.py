@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from goflow.runtime.models import WorkItem
+from djflow.runtime.models import WorkItem
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 

@@ -1,4 +1,4 @@
-from goflow.apptools.forms import BaseForm, StartForm
+from djflow.apptools.forms import BaseForm, StartForm
 
 from models import SampleModel
 
