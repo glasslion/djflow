@@ -1,7 +1,7 @@
 from django.contrib import admin
 from models import *
 from django.contrib.auth.models import User
-from goflow.workflow.admin import GoFlowUserAdmin, UserProfileInline
+from djflow.workflow.admin import GoFlowUserAdmin, UserProfileInline
 
 class LeaveRequestAdmin(admin.ModelAdmin):
     fieldsets = (

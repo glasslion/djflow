@@ -73,8 +73,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'leavedemo.urls'
 
 TEMPLATE_DIRS = (
-    join(_dir,'..', 'goflow', 'apptools', 'templates'),
-    join(_dir,'..', 'goflow', 'runtime', 'templates')
+    join(_dir,'..', 'djflow', 'apptools', 'templates'),
+    join(_dir,'..', 'djflow', 'runtime', 'templates')
 )
 
 INSTALLED_APPS = (
@@ -83,10 +83,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'goflow.workflow',
-    'goflow.graphics2',
-    'goflow.runtime',
-    'goflow.apptools',
+    'djflow.workflow',
+    'djflow.graphics2',
+    'djflow.runtime',
+    'djflow.apptools',
     'leavedemo.leave',
 )
 
@@ -102,6 +102,6 @@ WF_APPS_PREFIX = '/leave'
 WF_PUSH_APPS_PREFIX = 'leavedemo.leave.pushapplications'
 
 # mail notification settings
-DEFAULT_FROM_EMAIL = 'goflow <goflow@alwaysdata.net>'
+DEFAULT_FROM_EMAIL = 'djflow <djflow@alwaysdata.net>'
 EMAIL_HOST = 'smtp.alwaysdata.com'
 EMAIL_SUBJECT_PREFIX = '[Goflow notification]'
