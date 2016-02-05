@@ -25,7 +25,7 @@ setup(
     author_email='glasslion@gmail.com',
     url='https://github.com/glasslion/djflow',
     packages=[
-        'goflow',
+        'djflow',
     ],
     include_package_data=True,
     install_requires=[
